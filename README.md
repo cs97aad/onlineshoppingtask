@@ -14,7 +14,7 @@ Built using **Microsoft Playwright** with **C# and .NET 6**.
 1. **Clone the Repository**
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/cs97aad/onlineshoppingtask.git
 ```
 
 2. **Install Required Tools**
@@ -142,9 +142,6 @@ Assert.IsTrue(loggedInText.Contains(_userData["name"]));
 
 ---
 
-## License
-
-This project is licensed under the MIT License.
 
 ---
 
