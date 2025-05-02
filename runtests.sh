@@ -6,6 +6,10 @@ set -e
 echo "🔵 Building the project..."
 dotnet build
 
+echo 🔵 Ensuring Playwright browsers are installed...on Mac / Windows
+playwright install || pwsh bin/Debug/net6.0/playwright.ps1 install
+
+
 echo "🔵 Running tests and creating .trx file..."
 dotnet test --logger "trx;LogFileName=./TestResults.trx"
 
