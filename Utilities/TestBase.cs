@@ -17,9 +17,15 @@ namespace AutomationExerciseTests.Utilities
         public async Task Setup()
         {
             _playwright = await Playwright.CreateAsync();
+
+            // Detect if running in CI/CD (e.g., Jenkins)
+            var isCI = Environment.GetEnvironmentVariable("CI") == "true";
+
             _browser = await _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = false
+                Headless = isCI, //  Run headless in CI, headed locally
+                SlowMo = isCI ? 0 : 50, // 🐢 SlowMo only for local visibility
+                Args = new[] { "--no-sandbox", "--disable-setuid-sandbox" } //  Needed for Linux-based CI agents
             });
 
             var context = await _browser.NewContextAsync();
@@ -62,6 +68,5 @@ namespace AutomationExerciseTests.Utilities
                 await consentButton.ClickAsync();
             }
         }
-
     }
 }
