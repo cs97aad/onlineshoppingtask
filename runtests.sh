@@ -7,7 +7,10 @@ echo "🔵 Building the project..."
 dotnet build
 
 echo 🔵 Ensuring Playwright browsers are installed...on Mac / Windows
-playwright install || pwsh bin/Debug/net6.0/playwright.ps1 install
+echo "playwright install || pwsh bin/Debug/net6.0/playwright.ps1 install"
+
+echo 🔵 Installing Playwright browsers...
+~/.dotnet/tools/playwright install || powershell -ExecutionPolicy Bypass -File "bin/Debug/net6.0/playwright.ps1"
 
 
 echo "🔵 Running tests and creating .trx file..."
