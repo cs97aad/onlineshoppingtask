@@ -21,4 +21,3 @@ reportgenerator -reports:TestResults/TestResults.trx -targetdir:Reports -reportt
 
 echo "✅ Report generated at: Reports/index.html"
 echo "🔵 Opening HTML report..."
-open Reports/index.html
